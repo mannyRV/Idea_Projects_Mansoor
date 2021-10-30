@@ -1,0 +1,134 @@
+
+-------------------------------------------------------------------------
+project : console based todo application
+-------------------------------------------------------------------------
+
+step-1 : find data model
+
+            1. Item:
+                      Attributes:
+                                 - id: int
+                                 - name: String
+                                 - price: double
+                                 - sold : Boolean
+                                 - offered : Boolean
+                                 - weeklyPayment : double
+                                 - term: int
+                                 - offer : double
+
+            2. User:
+                      Attributes:
+                                   - userId: int
+                                   - username: String
+                                   - password: String
+                                   - Balance: double
+                      Actions:
+                                   - login()
+                                   - register() // to be a customer
+                                   - makePayment() // membership payment
+
+            3. Customer:
+                      Attributes:
+                                   - customerId: int
+                                   - username: String
+                                   - password: String
+                                   - email : String
+                                   - offerAmount: double
+                                   - offers : Map<Item, offerAmount>
+                                   - ownedItems: List<Items>
+                      Actions:
+                                   - viewItem()   // single Item
+                                   - viewItems()  // List of items in inventory
+                                   - viewOwned()  // List of purchased Items
+                                   - viewMyPaymentPlan() // List total weekly payment of purchased items remaining in term
+            4. Employee:
+                      Attributes:
+                                   - employeeId: int
+                                   - employeeName : String
+                      Actions:
+                                   - addItem()
+                                   - acceptOffer()
+                                   - rejectOffer()
+                                   - removeItem()
+                                   - viewAllPayments()
+
+            5. Manager:
+                      Attributes:
+                                 - mngrId: int
+                                 - mngrName : String
+                      Actions:
+                                 - addItem()
+                                 - acceptOffer()
+                                 - rejectOffer()
+                                 - removeItem()
+                                 - viewAllPayments()
+                                 - addEmployee()
+                                 - fireEmployee()
+                                 - viewOffers()
+            6. System:
+                     Automatic Actions:
+                                 - updateItem to owned when offere accepted
+                                 - eject all pending offers for item when offer is accepted
+                                 - calculate weekly payments
+
+step-2 : find relationship b/w data models
+
+         -
+
+step-3: find use-cases on data models
+
+
+            - addTodo
+            - editTodo
+            - deleteTodo
+            - completeTodo
+            - completeAll
+            - clearCompleted
+            - viewTodos
+
+            - register
+            - login
+            - logout
+
+
+------------------------------------------------------------------------
+software
+------------------------------------------------------------------------
+
+
+    1- datasource a.k.a database
+
+        => persist data
+
+    2- application
+
+        => process data
+
+        types of applications
+
+            - console based application
+            - web-based application
+            - mobile application
+            - etc..
+
+
+---------------------------------------------------------------------------
+
+S/w Application
+
+
+   Layers i.e logical separation of code
+   A layer can have many components / objects
+
+
+    1. data / dao / repository layer
+
+        => data accessing code
+
+    2. service / business layer
+
+        => data processing code
+
+    3. web layer
+
+        => request / response code

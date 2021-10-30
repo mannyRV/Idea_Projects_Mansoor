@@ -1,6 +1,9 @@
 package com.shop.service;
 
 public class User {
-    private String username;
-    private
+    public String name;
+    public String email;
+    public void signUp(){
+
+    }
 }
