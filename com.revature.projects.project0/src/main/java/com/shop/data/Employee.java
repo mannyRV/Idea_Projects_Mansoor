@@ -14,7 +14,7 @@ public class Employee {
 
     }
     //accept or reject offers
-    public void offerDecision(Item item,double offer){
+    public void offerDecision(Item item,double offer,Customer customer){
 
     }
 
