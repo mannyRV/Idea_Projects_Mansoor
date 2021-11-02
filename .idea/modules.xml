@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Idea_Projects_Mansoor.iml" filepath="$PROJECT_DIR$/.idea/Idea_Projects_Mansoor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.bank.transfer/com.bank.transfer.iml" filepath="$PROJECT_DIR$/com.bank.transfer/com.bank.transfer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.revature.projects.project0/com.revature.projects.project0.iml" filepath="$PROJECT_DIR$/com.revature.projects.project0/com.revature.projects.project0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myfirstjavacode/myfirstjavacode.iml" filepath="$PROJECT_DIR$/myfirstjavacode/myfirstjavacode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/play.with.lists/play.with.lists.iml" filepath="$PROJECT_DIR$/play.with.lists/play.with.lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/play.with.queue/play.with.queue.iml" filepath="$PROJECT_DIR$/play.with.queue/play.with.queue.iml" />
+    </modules>
+  </component>
+</project>

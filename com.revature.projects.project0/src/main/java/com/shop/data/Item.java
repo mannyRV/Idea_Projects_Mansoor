@@ -1,13 +1,23 @@
 package com.shop.data;
 
 public class Item {
-    public static String name;
+    int itemId;
+    public String name;
     double price;
     boolean sold;
     boolean offered;
     double weeklyPayment;
     int term;
     double offer;
+
+    public Item(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public Item(int itemId) {
+        this.itemId = itemId;
+    }
 
     public String getName() {
         return name;
