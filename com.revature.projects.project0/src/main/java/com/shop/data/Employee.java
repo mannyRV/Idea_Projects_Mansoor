@@ -10,7 +10,7 @@ public class Employee implements ManageItems {
     //Employee Attributes
     private String name;
     private int id;
-    List<Item> items=new ArrayList<>();
+    public List<Item> items=new ArrayList<>();
     //Employee Actions
     //add item
     public void addItem(Item i){

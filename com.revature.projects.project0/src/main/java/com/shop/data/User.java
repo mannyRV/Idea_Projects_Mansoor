@@ -5,7 +5,6 @@ public class User {
     public String email;
     public String password;
     public boolean isCustomer;
-
     public String getUsername() {
         return username;
     }
