@@ -1,4 +1,4 @@
-package com.shop.data;
+package com.shop.model;
 
 public class User {
     public String username;
@@ -23,4 +23,6 @@ public class User {
         this.email=email;
         isCustomer = true;
     }
+
+
 }

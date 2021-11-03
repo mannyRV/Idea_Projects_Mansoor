@@ -1,9 +1,7 @@
-package com.shop.data;
-import com.shop.data.User;
-import com.shop.data.Employee;
+package com.shop.model;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Customer extends User {
     private double offerAmount;

@@ -1,4 +1,4 @@
-package com.shop.data;
+package com.shop.model;
 
 public class Item {
     int itemId;
@@ -7,7 +7,7 @@ public class Item {
     boolean sold;
     boolean offered;
     double weeklyPayment;
-    int term;
+    int term=52;
     double offer;
 
     public Item(String name, double price) {
@@ -73,5 +73,14 @@ public class Item {
 
     public void setOffer(double offer) {
         this.offer = offer;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemId=" + itemId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

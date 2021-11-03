@@ -1,4 +1,6 @@
-package com.shop.data;
+package com.shop.service;
+
+import com.shop.model.Item;
 
 public class ShopSystem {
     //Update an item to owned state ==> assign item to customer

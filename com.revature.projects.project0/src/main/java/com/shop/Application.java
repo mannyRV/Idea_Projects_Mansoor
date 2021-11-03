@@ -1,7 +1,7 @@
 package com.shop;
 
-import com.shop.data.Customer;
-import com.shop.data.User;
+import com.shop.model.Customer;
+import com.shop.model.User;
 
 public class Application {
     User user = new Customer();

@@ -1,9 +1,11 @@
-package com.shop.data;
+package com.shop.repository;
+
+import com.shop.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class ItemRepository {
+class JdbcItemRepository {
     Item item;
     List<Item> itemList = new ArrayList<>();
     public void add(Item item){

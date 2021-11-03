@@ -1,10 +1,11 @@
-package com.shop.data;
+package com.shop.model;
 
+import com.shop.model.Customer;
+import com.shop.model.Item;
 import com.shop.service.ManageItems;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.shop.data.Item;
 
 public class Employee implements ManageItems {
     //Employee Attributes
@@ -31,7 +32,7 @@ public class Employee implements ManageItems {
     }
 
     //accept or reject offers
-    public void offerDecision(Item item,double offer,Customer customer){
+    public void offerDecision(Item item, double offer, Customer customer){
 
     }
 
