@@ -17,12 +17,13 @@ public class User {
         return password;
     }
 
-    private void register(String email, String username, String password) {
-        this.username= username;
-        this.password= password;
-        this.email=email;
-        isCustomer = true;
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isCustomer=" + isCustomer +
+                '}';
     }
-
-
 }

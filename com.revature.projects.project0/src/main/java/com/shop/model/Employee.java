@@ -1,13 +1,11 @@
 package com.shop.model;
 
-import com.shop.model.Customer;
-import com.shop.model.Item;
-import com.shop.service.ManageItems;
+import com.shop.service.ItemService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Employee implements ManageItems {
+public class Employee{
     //Employee Attributes
     private String name;
     private int id;
@@ -37,7 +35,7 @@ public class Employee implements ManageItems {
     }
 
     // view all payments
-    public double[] viewPayments(){
+    public void viewPayments(){
 
     }
 }
