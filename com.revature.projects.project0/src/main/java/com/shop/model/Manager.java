@@ -1,8 +1,8 @@
 package com.shop.model;
 
 public class Manager extends Employee{
-    String name;
 
-
-
+    public Manager(String name, int id) {
+        super(name, id);
+    }
 }

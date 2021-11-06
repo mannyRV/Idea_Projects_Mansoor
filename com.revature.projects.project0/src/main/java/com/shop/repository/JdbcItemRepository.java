@@ -1,7 +1,6 @@
 package com.shop.repository;
 
 import com.shop.model.Item;
-
 import java.util.ArrayList;
 import java.util.List;
 

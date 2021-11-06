@@ -1,8 +1,9 @@
 package com.shop.service;
 
+import com.shop.model.Customer;
 import com.shop.model.User;
 
-public interface UserService{
+public interface UserService {
     void register(User user);
-    User login(String email, String password);
+    Customer login(String email, String password);
 }

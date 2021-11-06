@@ -1,10 +1,19 @@
 package com.shop.model;
 
 public class User {
-    public String username;
-    public String email;
-    public String password;
-    public boolean isCustomer;
+    private String username;
+    private String email;
+    private String password;
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
     public String getUsername() {
         return username;
     }
@@ -23,7 +32,6 @@ public class User {
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", isCustomer=" + isCustomer +
                 '}';
     }
 }

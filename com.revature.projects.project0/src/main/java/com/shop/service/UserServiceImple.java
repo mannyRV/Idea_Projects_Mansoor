@@ -1,5 +1,6 @@
 package com.shop.service;
 
+import com.shop.model.Customer;
 import com.shop.model.User;
 
 public class UserServiceImple implements UserService {
@@ -9,7 +10,7 @@ public class UserServiceImple implements UserService {
     }
 
     @Override
-    public User login(String email, String password) {
+    public Customer login(String email, String password) {
         return null;
     }
 

@@ -4,76 +4,83 @@ public class Item {
     int itemId;
     public String name;
     double price;
-    boolean sold;
-    boolean offered;
-    double weeklyPayment;
-    int term=52;
-    double offer;
+//    boolean sold;
+//    boolean offered;
+//    double weeklyPayment;
+//    int term=52;
+//    double offer;
 
-    public Item(String name, double price) {
+    public Item(int itemId, String name, double price) {
+        this.itemId=itemId;
         this.name = name;
         this.price = price;
     }
 
-    public Item(int itemId) {
-        this.itemId = itemId;
+    //public Item(int itemId) {
+       // this.itemId = itemId;
+    //}
+
+    public int getItemId() {
+        return itemId;
     }
 
     public String getName() {
+
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+   // public void setName(String name) {
+       // this.name = name;
+  //  }
 
     public double getPrice() {
+
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+   // public void setPrice(double price) {
+     //   this.price = price;
+   // }
 
-    public boolean isSold() {
-        return sold;
-    }
-
-    public void setSold(boolean sold) {
-        this.sold = sold;
-    }
-
-    public boolean isOffered() {
-        return offered;
-    }
-
-    public void setOffered(boolean offered) {
-        this.offered = offered;
-    }
-
-    public double getWeeklyPayment() {
-        return weeklyPayment;
-    }
-
-    public void setWeeklyPayment(double weeklyPayment) {
-        this.weeklyPayment = weeklyPayment;
-    }
-
-    public int getTerm() {
-        return term;
-    }
-
-    public void setTerm(int term) {
-        this.term = term;
-    }
-
-    public double getOffer() {
-        return offer;
-    }
-
-    public void setOffer(double offer) {
-        this.offer = offer;
-    }
+//    public boolean isSold() {
+//        return sold;
+//    }
+//
+//    public void setSold(boolean sold) {
+//        this.sold = sold;
+//    }
+//
+//    public boolean isOffered() {
+//        return offered;
+//    }
+//
+//    public void setOffered(boolean offered) {
+//        this.offered = offered;
+//    }
+//
+//    public double getWeeklyPayment() {
+//        return weeklyPayment;
+//    }
+//
+//    public void setWeeklyPayment(double weeklyPayment) {
+//        this.weeklyPayment = weeklyPayment;
+//    }
+//
+//    public int getTerm() {
+//        return term;
+//    }
+//
+//    public void setTerm(int term) {
+//        this.term = term;
+//    }
+//
+//    public double getOffer() {
+//        return offer;
+//    }
+//
+//    public void setOffer(double offer) {
+//        this.offer = offer;
+//    }
 
     @Override
     public String toString() {

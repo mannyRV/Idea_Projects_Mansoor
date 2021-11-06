@@ -9,33 +9,25 @@ public class Employee{
     //Employee Attributes
     private String name;
     private int id;
-    public List<Item> items=new ArrayList<>();
-    //Employee Actions
-    //add item
-    public void addItem(Item i){
-        items.add(i);
-    }
-    public void addItem(String name,double price){
-        Item i=new Item(name, price);
-        items.add(i);
-    }
-    public void addItem(int id){
-        Item i=new Item(id);
-        items.add(i);
-    }
-    //edit item
-    public void editItem(Item item, String newName,double newPrice){
-        item.name=newName;
-        item.price = newPrice;
+
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
     }
 
-    //accept or reject offers
-    public void offerDecision(Item item, double offer, Customer customer){
-
+    public String getName() {
+        return name;
     }
 
-    // view all payments
-    public void viewPayments(){
+    public int getId() {
+        return id;
+    }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

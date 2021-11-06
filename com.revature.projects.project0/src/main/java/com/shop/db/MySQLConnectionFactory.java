@@ -14,9 +14,9 @@ public class MySQLConnectionFactory {
 //        DriverManager.registerDriver(new Driver());
 
         // step-2 : create DB-connection with URL, username & password
-        String url = "jdbc:mysql://localhost:3306/todosdb";
+        String url = "jdbc:mysql://localhost:3306/shop";
         String username = "root";
-        String password = "Root$1212";
+        String password = "5985ftfr";
 
         connection = DriverManager.getConnection(url, username, password);
 
