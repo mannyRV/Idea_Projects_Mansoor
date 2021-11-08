@@ -1,14 +1,14 @@
 package com.shop.model;
 
 public class Item {
-    int itemId;
+    public int itemId;
     public String name;
-    double price;
+    public double price;
 //    boolean sold;
 //    boolean offered;
 //    double weeklyPayment;
 //    int term=52;
-//    double offer;
+//     double offer;
 
     public Item(int itemId, String name, double price) {
         this.itemId=itemId;
@@ -16,31 +16,36 @@ public class Item {
         this.price = price;
     }
 
-    //public Item(int itemId) {
-       // this.itemId = itemId;
-    //}
+    public Item() {
+    }
 
+    public Item(int itemId) {
+        this.itemId = itemId;
+    }
     public int getItemId() {
         return itemId;
     }
 
-    public String getName() {
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
 
+    public String getName() {
         return name;
     }
 
-   // public void setName(String name) {
-       // this.name = name;
-  //  }
+   public void setName(String name) {
+        this.name = name;
+    }
 
     public double getPrice() {
 
         return price;
     }
 
-   // public void setPrice(double price) {
-     //   this.price = price;
-   // }
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
 //    public boolean isSold() {
 //        return sold;
