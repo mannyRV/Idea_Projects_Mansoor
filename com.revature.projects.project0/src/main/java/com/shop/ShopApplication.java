@@ -1,5 +1,7 @@
 package com.shop;
 
+import com.shop.exceptions.InvalidCredentialException;
+import com.shop.exceptions.UserNotFoundException;
 import com.shop.model.User;
 import com.shop.repository.*;
 import com.shop.service.*;
@@ -160,7 +162,20 @@ public class ShopApplication {
         userService.register(user);
         isCustomer = true;
     }
-    private static void handleChoice2(){}
+    private static void handleChoice2(){
+        scanner.nextLine();
+        System.out.println("Enter Email");
+        String email = scanner.nextLine();
+        System.out.println("Enter Password");
+        String password = scanner.nextLine();
+        try {
+            currentUser = userService.login(email, password);
+            todoService.setUser(currentUser);
+            System.out.println("login successful");
+        } catch (UserNotFoundException | InvalidCredentialException e) {
+            System.out.println("exception: " + e.getMessage());
+        }
+    }
     private static void handleChoice3(){}
     private static void handleChoice4(){}
     private static void handleChoice5(){}
