@@ -1,10 +1,5 @@
 package com.shop.model;
 
-import com.shop.service.ItemService;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Employee{
     //Employee Attributes
     private String name;

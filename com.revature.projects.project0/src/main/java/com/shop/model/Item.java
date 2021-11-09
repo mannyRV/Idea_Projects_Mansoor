@@ -4,16 +4,13 @@ public class Item {
     public int itemId;
     public String name;
     public double price;
-//    boolean sold;
-//    boolean offered;
-//    double weeklyPayment;
-//    int term=52;
-//     double offer;
+    public int maxQuanitity;
 
-    public Item(int itemId, String name, double price) {
+    public Item(int itemId, String name, double price, int maxQuanitity) {
         this.itemId=itemId;
         this.name = name;
         this.price = price;
+        this.maxQuanitity=maxQuanitity;
     }
 
     public Item() {
@@ -22,6 +19,7 @@ public class Item {
     public Item(int itemId) {
         this.itemId = itemId;
     }
+
     public int getItemId() {
         return itemId;
     }
@@ -47,7 +45,14 @@ public class Item {
         this.price = price;
     }
 
-//    public boolean isSold() {
+    public int getMaxQuanitity() {
+        return maxQuanitity;
+    }
+
+    public void setMaxQuanitity(int maxQuanitity) {
+        this.maxQuanitity = maxQuanitity;
+    }
+    //    public boolean isSold() {
 //        return sold;
 //    }
 //
@@ -93,6 +98,7 @@ public class Item {
                 "itemId=" + itemId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", maxQuanitity=" + maxQuanitity +
                 '}';
     }
 }

@@ -3,8 +3,7 @@ package com.shop.model;
 public class Offer {
     public int offerId;
     public double offerAmount;
-    // status of offer is false if pending and true if accepted
-    public boolean status;
+    public String status;
     public int item_id;
     public int customer_id;
     public int quantity;
@@ -13,17 +12,23 @@ public class Offer {
         return offerId;
     }
 
+    public void setOfferId(int offerId) {
+        this.offerId = offerId;
+    }
 
     public double getOfferAmount() {
         return offerAmount;
     }
 
+    public void setOfferAmount(double offerAmount) {
+        this.offerAmount = offerAmount;
+    }
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -31,16 +36,25 @@ public class Offer {
         return item_id;
     }
 
+    public void setItem_id(int item_id) {
+        this.item_id = item_id;
+    }
 
     public int getCustomer_id() {
         return customer_id;
     }
 
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
+    }
 
     public int getQuantity() {
         return quantity;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public Offer(double offerAmount, int quantity, int item_id, int customer_id) {
         this.offerAmount=offerAmount;

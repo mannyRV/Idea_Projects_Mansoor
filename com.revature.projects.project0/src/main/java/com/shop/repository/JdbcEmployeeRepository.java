@@ -1,31 +1,28 @@
 package com.shop.repository;
 
 import com.shop.db.MySQLConnectionFactory;
-import com.shop.model.Customer;
-import com.shop.model.User;
+import com.shop.model.Employee;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JdbcUserRepository implements UserRepository{
+public class JdbcEmployeeRepository implements EmployeeRepository{
     @Override
-    public void save(User user) {
+    public void save(int id, String name) {
         Connection connection = null;
         try {
             connection = MySQLConnectionFactory.getConnection();
             // step-3 :  create JDBC statements with SQL
-            String sql = "insert into customers(name,email,password) values (?,?,?)";
+            String sql = "insert into employees (id, name) values (?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, user.getName());
-            ps.setString(2, user.getEmail());
-            ps.setString(3, user.getPassword());
+            ps.setInt(1, id);
+            ps.setString(2, name);
 
             // step-4 :  execute JDBC-statements & process results
             int rowCount = ps.executeUpdate();
             if (rowCount == 1)
-                System.out.println("New customer inserted into database");
+                System.out.println("New Employee Hired ... :)");
 
             // step-5 : Handle SQL-exceptions
         } catch (SQLException e) {
@@ -40,33 +37,23 @@ public class JdbcUserRepository implements UserRepository{
                 }
             }
         }
-
     }
 
-    //find customer
     @Override
-    public Customer findByEmail(String email) {
-
-        Customer c = null;
-
+    public void remove(Employee emp) {
         Connection connection = null;
-
         try {
             connection = MySQLConnectionFactory.getConnection();
             // step-3 :  create JDBC statements with SQL
-            String sql = "select * from customers where email=?";
+            String sql = "delete from employees where id= ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, email);
+            ps.setInt(1, emp.getId());
 
-            ResultSet rs = ps.executeQuery();
+            // step-4 :  execute JDBC-statements & process results
+            int rowCount = ps.executeUpdate();
+            if (rowCount == 1)
+                System.out.println("Employee " + emp.getName() + "was fired ... :(");
 
-            while (rs.next()) {
-                Customer c= new Customer();
-                c.setId(rs.getInt("id"));
-                c.setName(rs.getString("name"));
-                c.setEmail(rs.getString("email"));
-                c.setPassword(rs.getString("password"));
-            }
             // step-5 : Handle SQL-exceptions
         } catch (SQLException e) {
             e.printStackTrace(); // print exception details in console
@@ -80,9 +67,6 @@ public class JdbcUserRepository implements UserRepository{
                 }
             }
         }
-        return c;
+
     }
-
-    //list of users
-
 }
