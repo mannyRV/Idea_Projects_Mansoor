@@ -16,7 +16,7 @@ public class JdbcUserRepository implements UserRepository{
         try {
             connection = MySQLConnectionFactory.getConnection();
             // step-3 :  create JDBC statements with SQL
-            String sql = "insert into customers(name,email,password) values (?,?,?)";
+            String sql = "insert into customers(name,email,userpswd) values (?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
@@ -61,7 +61,7 @@ public class JdbcUserRepository implements UserRepository{
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Customer c= new Customer();
+                c= new Customer();
                 c.setId(rs.getInt("id"));
                 c.setName(rs.getString("name"));
                 c.setEmail(rs.getString("email"));

@@ -2,22 +2,25 @@ package com.shop.repository;
 
 import com.shop.db.MySQLConnectionFactory;
 import com.shop.model.Employee;
+import com.shop.model.Manager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 public class JdbcEmployeeRepository implements EmployeeRepository{
+
     @Override
-    public void save(int id, String name) {
+    public void save(Employee emp) {
         Connection connection = null;
         try {
             connection = MySQLConnectionFactory.getConnection();
             // step-3 :  create JDBC statements with SQL
             String sql = "insert into employees (id, name) values (?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, id);
-            ps.setString(2, name);
+            ps.setInt(1, emp.getId());
+            ps.setString(2, emp.getName());
 
             // step-4 :  execute JDBC-statements & process results
             int rowCount = ps.executeUpdate();
@@ -69,4 +72,9 @@ public class JdbcEmployeeRepository implements EmployeeRepository{
         }
 
     }
+
+//    @Override
+//    public List<Employee> viewAll() {
+//        return null;
+//    }
 }

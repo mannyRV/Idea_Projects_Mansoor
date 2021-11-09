@@ -38,9 +38,11 @@ CREATE TABLE ownership_pmnts(
        item_id int,
        Amount double,
        quantity int,
+       pmnt_made double,
 	   FOREIGN KEY (custmer_id) REFERENCES customers(custmer_id),
        FOREIGN KEY (item_id) REFERENCES items(item_id)
        );
+
 
 INSERT INTO items (name, price)
 VALUES ("Pen", 1.99),
@@ -64,13 +66,19 @@ VALUES ('sam@email.com','sam23', 'ygfxiycwviyvwiycgcyc'),
        ('dante@email.com','dante23', 'hdchgbwuvcygdcogc');
 
 INSERT INTO offers (item_id, custmer_id,quantity,Amount)
-VALUES (1,1,3,3.29),
-       (2,3,4,1.29),
-       (1,4,7,0.89);
+VALUES (1,1,3,1.95),
+       (2,3,4,0.79),
+       (3,4,7,1.89),
+       (4,1,3,10.89),
+       (5,3,4,2.49),
+       (6,4,7,3.29);
 
-SELECT name,username, price, Amount,quantity, Amount*quantity AS total
-FROM customers, Items, offers
-WHERE offers.item_id=Items.item_id
-AND offers.custmer_id=customers.custmer_id
-ORDER By username;
+INSERT INTO employees (id,name)
+VALUES (1, 'cassandra'),
+	   (2, 'manuel');
+--SELECT name,username, price, Amount,quantity, Amount*quantity AS total
+--FROM customers, Items, offers
+--WHERE offers.item_id=Items.item_id
+--AND offers.custmer_id=customers.custmer_id
+--ORDER By username;
 

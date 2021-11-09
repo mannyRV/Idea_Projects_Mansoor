@@ -1,5 +1,6 @@
 package com.shop.service;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.shop.exceptions.InvalidCredentialException;
 import com.shop.exceptions.UserNotFoundException;
 import com.shop.model.Customer;

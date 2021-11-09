@@ -11,8 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.locks.Lock;
 
- class JdbcItemRepository implements ItemRepository{
+public class JdbcItemRepository implements ItemRepository{
     List<Item> itemList = new ArrayList<>();
 
     @Override
@@ -234,6 +238,11 @@ import java.util.List;
             // Mapping relational data to objects
             while (rs.next()) {
                 Offer offer = new Offer();
+                offer.setItem_id(rs.getInt("item_id"));
+                offer.setOfferId(rs.getInt("id"));
+                offer.setCustomer_id(rs.getInt("custmer_id"));
+                offer.setQuantity(rs.getInt("quantity"));
+                offer.setOfferAmount(rs.getDouble("Amount"));
                 offersList.add(offer);
             }
             // step-5 : Handle SQL-exceptions
