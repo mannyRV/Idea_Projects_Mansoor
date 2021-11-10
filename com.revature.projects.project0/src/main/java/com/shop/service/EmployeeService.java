@@ -6,7 +6,7 @@ import com.shop.model.Offer;
 import java.util.List;
 
 public interface EmployeeService {
-    void addItem(Item item);
+    void addItem(String name, double price, int max_qty);
     void editItem(int id, String name, double price,int qty);
     void editPrice(int id, double price);
     void editName(int id, String name);

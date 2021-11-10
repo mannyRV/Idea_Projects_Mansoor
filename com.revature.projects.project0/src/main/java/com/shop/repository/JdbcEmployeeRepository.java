@@ -1,15 +1,54 @@
 package com.shop.repository;
 
 import com.shop.db.MySQLConnectionFactory;
+import com.shop.model.Customer;
 import com.shop.model.Employee;
 import com.shop.model.Manager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class JdbcEmployeeRepository implements EmployeeRepository{
+
+    @Override
+    public Employee findByName(String name) {
+
+        Employee emp = null;
+
+        Connection connection = null;
+
+        try {
+            connection = MySQLConnectionFactory.getConnection();
+            // step-3 :  create JDBC statements with SQL
+            String sql = "select * from employees where name=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, name);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                emp = new Employee();
+                emp.setId(rs.getInt("id"));
+                emp.setName(rs.getString("name"));
+            }
+            // step-5 : Handle SQL-exceptions
+        } catch (SQLException e) {
+            e.printStackTrace(); // print exception details in console
+        } finally {
+            // step-7 : close / release connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return emp;
+    }
 
     @Override
     public void save(Employee emp) {
@@ -73,8 +112,4 @@ public class JdbcEmployeeRepository implements EmployeeRepository{
 
     }
 
-//    @Override
-//    public List<Employee> viewAll() {
-//        return null;
-//    }
 }

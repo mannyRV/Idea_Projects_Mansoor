@@ -2,6 +2,7 @@ package com.shop.repository;
 
 import com.shop.db.MySQLConnectionFactory;
 import com.shop.model.Customer;
+import com.shop.model.Employee;
 import com.shop.model.Item;
 import com.shop.model.Offer;
 
@@ -20,16 +21,16 @@ public class JdbcItemRepository implements ItemRepository{
     List<Item> itemList = new ArrayList<>();
 
     @Override
-    public void addItem(Item item) {
+    public void addItem(String name, double price, int max_inventory) {
         Connection connection = null;
         try {
             connection = MySQLConnectionFactory.getConnection();
             // step-3 :  create JDBC statements with SQL
             String sql = "insert into items(Name,price,quantity) values (?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, item.getName());
-            ps.setDouble(2, item.getPrice());
-            ps.setInt(3,item.getMaxQuanitity());
+            ps.setString(1, name);
+            ps.setDouble(2, price);
+            ps.setInt(3,max_inventory);
 
             // step-4 :  execute JDBC-statements & process results
             int rowCount = ps.executeUpdate();
@@ -50,6 +51,38 @@ public class JdbcItemRepository implements ItemRepository{
             }
         }
 
+
+
+    }
+
+    @Override
+    public void removeItem(int id) {
+        Connection connection = null;
+        try {
+            connection = MySQLConnectionFactory.getConnection();
+            // step-3 :  create JDBC statements with SQL
+            String sql = "delete from items where id= ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            // step-4 :  execute JDBC-statements & process results
+            int rowCount = ps.executeUpdate();
+            if (rowCount == 1)
+                System.out.println("New Item inserted into items table in shop database");
+
+            // step-5 : Handle SQL-exceptions
+        } catch (SQLException e) {
+            e.printStackTrace(); // print exception details in console
+        } finally {
+            // step-7 : close / release connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
 
     }
@@ -262,7 +295,46 @@ public class JdbcItemRepository implements ItemRepository{
         return offersList;
     }
 
-     @Override
+    @Override
+    public Offer findOfferById(int id) {
+
+        Offer offer = null;
+
+        Connection connection = null;
+
+        try {
+            connection = MySQLConnectionFactory.getConnection();
+            // step-3 :  create JDBC statements with SQL
+            String sql = "select * from offers where id=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                offer.setOfferId(rs.getInt("id"));
+                offer.setItem_id(rs.getInt("item_id"));
+                offer.setCustomer_id(rs.getInt("customer_id"));
+                offer.setQuantity(rs.getInt("quantity"));
+                offer.setOfferAmount(rs.getDouble("Amount"));
+            }
+            // step-5 : Handle SQL-exceptions
+        } catch (SQLException e) {
+            e.printStackTrace(); // print exception details in console
+        } finally {
+            // step-7 : close / release connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return offer;
+    }
+
+    @Override
      public void acceptOffer(Offer offer) {
          Connection connection = null;
          try {

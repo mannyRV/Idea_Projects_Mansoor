@@ -17,7 +17,7 @@ CREATE TABLE customers(
         );
 
 CREATE TABLE offers(
-       id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+       id int PRIMARY KEY AUTO_INCREMENT,
        item_id int,
        custmer_id int,
        quantity int,

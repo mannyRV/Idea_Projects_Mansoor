@@ -13,8 +13,8 @@ public class EmployeeServiceImplem implements EmployeeService {
     }
 
     @Override
-    public void addItem(Item item) {
-        itemRepository.addItem(item);
+    public void addItem(String name, double price, int max_qty) {
+        itemRepository.addItem(name,price,max_qty);
     }
 
     @Override
