@@ -1,13 +1,7 @@
-Hi how are 
-ysdluhlvkn
- ahfbjha f
- ahfvljhna
- ajhnflib
- na fdjliahb
- janhsvlh';, 
- h asdfvhjlhljh
- n dfjhjhb'
- ndha,dfjhjhb
- JSDhv;oHcvkh:ICvh;oH;ohK:JNXc 
- JHDljn:CKXh ljHNCjhn 
- 
+Hi 
+Hola 
+Salam 
+Shalom 
+bonjor 
+ni haw
+qu ni shiwa 
