@@ -52,45 +52,6 @@ public class Item {
     public void setMaxQuanitity(int maxQuanitity) {
         this.maxQuanitity = maxQuanitity;
     }
-    //    public boolean isSold() {
-//        return sold;
-//    }
-//
-//    public void setSold(boolean sold) {
-//        this.sold = sold;
-//    }
-//
-//    public boolean isOffered() {
-//        return offered;
-//    }
-//
-//    public void setOffered(boolean offered) {
-//        this.offered = offered;
-//    }
-//
-//    public double getWeeklyPayment() {
-//        return weeklyPayment;
-//    }
-//
-//    public void setWeeklyPayment(double weeklyPayment) {
-//        this.weeklyPayment = weeklyPayment;
-//    }
-//
-//    public int getTerm() {
-//        return term;
-//    }
-//
-//    public void setTerm(int term) {
-//        this.term = term;
-//    }
-//
-//    public double getOffer() {
-//        return offer;
-//    }
-//
-//    public void setOffer(double offer) {
-//        this.offer = offer;
-//    }
 
     @Override
     public String toString() {

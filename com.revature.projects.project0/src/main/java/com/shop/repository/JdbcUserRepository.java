@@ -62,10 +62,10 @@ public class JdbcUserRepository implements UserRepository{
 
             while (rs.next()) {
                 c= new Customer();
-                c.setId(rs.getInt("id"));
+                c.setId(rs.getInt("custmer_id"));
                 c.setName(rs.getString("name"));
                 c.setEmail(rs.getString("email"));
-                c.setPassword(rs.getString("password"));
+                c.setPassword(rs.getString("userpswd"));
             }
             // step-5 : Handle SQL-exceptions
         } catch (SQLException e) {

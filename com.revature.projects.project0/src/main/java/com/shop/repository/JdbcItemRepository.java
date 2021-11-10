@@ -443,6 +443,7 @@ public class JdbcItemRepository implements ItemRepository{
                  item.setItemId(rs.getInt("item_id"));
                  item.setName(rs.getString("name"));
                  item.setPrice(rs.getDouble("price"));
+                 item.setMaxQuanitity(rs.getInt("quantity"));
                  items.add(item);
              }
 

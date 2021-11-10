@@ -21,7 +21,8 @@ public class ShopApplication {
     static boolean isEmployee = false;
     static boolean isManager = false;
     static boolean isAdmin= false;
-    static String adminKey = "I'm An Admin";
+    static int adminKey =1987;
+    static int managerKey = 1988;
 
     static ItemRepository itemRepository= new JdbcItemRepository();
     static ItemService itemService = new ItemServiceImplem(itemRepository);
@@ -40,8 +41,11 @@ public class ShopApplication {
         while(true){
             System.out.println("\n Welcome to the Auction shop Please select a choice: ");
             System.out.println(" \n \n");
+            System.out.println("100- Admin tools \n");
+            System.out.println("");
 
-            if(!isCustomer) {
+
+            if(!isCustomer && !isAdmin) {
                 System.out.println("" +
                         "1- register to be a customer \n"+
                         " ");
@@ -59,25 +63,37 @@ public class ShopApplication {
                         "6- View remaining payments for an item\n");
             }
             if(isManager && isAdmin){
-                System.out.println(" "+
-                        "7- Hire employee"+
-                        "8- Fire employee");
+                System.out.println(""+
+                        "7- Hire employee \n"+
+                        "8- Fire employee   \n");
             }
-            if(isEmployee){
-                System.out.println( " "+
-                        "9- Add Item to the shop "+
-                        "10- View Offers" +
-                        "11- Accept Offer "+
-                        "12- reject offer"+
-                        "13- Remove an item from shop "+
-                        "14- View All payments "+
-                        "15- Edit Item "+
-                        "16- Edit Item Name"+
-                        "17- Edit Item Price");
+            if(isEmployee && isAdmin){
+                System.out.println( ""+
+                        "9- Add Item to the shop \n"+
+                        "10- View Offers  \n" +
+                        "11- Accept Offer \n"+
+                        "12- reject offer  \n"+
+                        "13- Remove an item from shop \n"+
+                        "14- View All payments \n"+
+                        "15- Edit Item \n"+
+                        "16- Edit Item Name  \n"+
+                        "17- Edit Item Price  \n");
             }
+            if(isAdmin && !isManager){
+                System.out.println("200- Manager \n");
+            }
+
             int choice = scanner.nextInt();
 
             switch (choice){
+                case 100:{
+                    handlechoice100();
+                    break;
+                }
+                case 200:{
+                    handlechoice200();
+                    break;
+                }
                 case 1: {
                     handleChoice1();
                     break;
@@ -152,9 +168,32 @@ public class ShopApplication {
         }
     }
     // Handle the choices
+
+    private static void handlechoice100() {
+        scanner.nextLine();
+        System.out.println("Enter Admin key: \n");
+        int key = scanner.nextInt();
+        if (key == adminKey) {
+            isAdmin = true;
+            isEmployee = true;
+        } else {
+            System.out.println("Admin key is incorrect ... access denied ");
+        }
+    }
+    private static void handlechoice200() {
+        scanner.nextLine();
+        System.out.println("Enter manager key: \n");
+        int key = scanner.nextInt();
+        if (key == managerKey) {
+            isAdmin = true;
+            isManager = true;
+        } else {
+            System.out.println("Admin key is incorrect ... access denied ");
+        }
+    }
+
     private static void handleChoice1() {
         scanner.nextLine();
-
         System.out.println("Email !");
         String email = scanner.nextLine();
 
@@ -190,6 +229,7 @@ public class ShopApplication {
                 .forEach(System.out::println);
     }
     private static void handleChoice4(){
+        scanner.hasNextLine();
         System.out.println("Enter item id: \n");
         int item_id = scanner.nextInt();
         System.out.println("Enter quantity: \n");
@@ -201,21 +241,24 @@ public class ShopApplication {
     private static void handleChoice5(){}
     private static void handleChoice6(){}
     private static void handleChoice7(){
+        scanner.nextLine();
         System.out.println("Enter id for employee: \n");
         int id = scanner.nextInt();
         System.out.println("Enter his/her name: \n");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         managerService.hireEmployee(id,name);
     }
     private static void handleChoice8(){
+        scanner.nextLine();
         System.out.println("Enter Employee name: \n");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         employee = employeeRepository.findByName(name);
         managerService.fireEmployee(employee);
     }
     private static void handleChoice9(){
+        scanner.nextLine();
         System.out.println("Enter Item Name: \n");
-        String name= scanner.next();
+        String name= scanner.nextLine();
         System.out.println("Enter Item Price: \n");
         double price = scanner.nextDouble();
         System.out.println("Enter quantity available: \n");
@@ -226,30 +269,55 @@ public class ShopApplication {
         itemRepository.viewOffers();
     }
     private static void handleChoice11(){
+        scanner.nextLine();
         System.out.println("Enter Offer id: ");
         int offer_id= scanner.nextInt();
-        Offer offer=new Offer;
+        Offer offer;
         offer = itemRepository.findOfferById(offer_id);
         itemRepository.acceptOffer(offer);
     }
     private static void handleChoice12(){
+        scanner.nextLine();
         System.out.println("Enter Offer id: ");
         int offer_id= scanner.nextInt();
-        Offer offer=new Offer;
+        Offer offer;
         offer = itemRepository.findOfferById(offer_id);
         itemRepository.rejectOffer(offer);
     }
     private static void handleChoice13(){
+        scanner.nextLine();
         System.out.println("Enter Item id to remove: \n");
         int id = scanner.nextInt();
         itemRepository.removeItem(id);
     }
     private static void handleChoice14(){}
     private static void handleChoice15(){
+        scanner.nextLine();
         System.out.println("Enter item id: \n");
-
+        int id = scanner.nextInt();
+        System.out.println("Enter New name: \n");
+        String name = scanner.nextLine();
+        System.out.println("Enter New Price: \n");
+        double price = scanner.nextDouble();
+        System.out.println("Enter available quantity: \n");
+        int qty = scanner.nextInt();
+        itemRepository.editItem(id,name,price,qty);
     }
-    private static void handleChoice16(){}
-    private static void handleChoice17(){}
+    private static void handleChoice16(){
+        scanner.nextLine();
+        System.out.println("Enter item id: \n");
+        int id = scanner.nextInt();
+        System.out.println("Enter New name: \n");
+        String name = scanner.nextLine();
+        itemRepository.editItem(id,name);
+    }
+    private static void handleChoice17(){
+        scanner.nextLine();
+        System.out.println("Enter item id: \n");
+        int id = scanner.nextInt();
+        System.out.println("Enter New Price: \n");
+        double price = scanner.nextDouble();
+        itemRepository.editItem(id,price);
+    }
 
 }
